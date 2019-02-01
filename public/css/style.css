@@ -111,7 +111,60 @@
     color: #ffffff;
   }
   /* ..... CONTACT FORM END ......*/
+  
+   /* ..... ADD USERS FORM START ......*/
 
+  .box
+{
+	margin-top: 5%;
+        margin-bottom: 5%;
+	margin-left: 25%;
+        background-color: #fff;
+	width: 500px;
+	padding: 40px;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+	background-clip: border-box;
+}
+.box h2
+{
+	margin: 0 0 30px;
+	padding: 0;
+	text-align: center;
+	color: #000;
+	font-family: roboto;
+}
+.box .inputBox
+{
+	position: relative;
+}
+
+.box .inputBox input
+{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	outline: none;
+	background: transparent;
+	border-bottom: 1px solid #000   ;
+}
+.box input[type="submit"]
+{
+	background: transparent;
+	border: none;
+	outline: none;
+	background-color: #03a9f4;
+	color: #fff;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+   /* ..... ADD USERS FORM END ......*/
 
 /* ..... FOOTER START ......*/
 
