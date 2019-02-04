@@ -13,6 +13,11 @@
       <th scope="col">Email</th>
       <th scope="col">Password</th>
       <th scope="col">Action</th>     
+      <th scope="col">
+          <a href="{{ route('add-record') }}" class="btn btn-sm btn-info">
+              {{ __('ADD') }}
+          </a>
+      </th>     
     </tr>
   </thead>
   <tbody>
@@ -26,8 +31,8 @@
       <td>{{ $data->email }}</td>
       <td>{{ $data->password }}</td>
       <td>
-          <a href='delete/{{ $data->id }}' class="btn btn-info text-white btn-sm">Delete</a>
-          <a href='edit/{{ $data->id }}' class="btn btn-info text-white btn-sm">Edit</a>
+          <a href="{{ route('delete',$data->id) }} " class="btn btn-info text-white btn-sm">Delete</a>
+          <a href="{{  route('edit-users',$data->id) }} "class="btn btn-info text-white btn-sm">Edit</a>
       </td>
     </tr>
   @endforeach
