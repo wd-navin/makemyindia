@@ -11,6 +11,7 @@
       <th scope="col">Phone</th>
       <th scope="col">Fax</th>
       <th scope="col">Email</th>
+      <th scope="col">image</th>
       <th scope="col">Password</th>
       <th scope="col">Action</th>     
       <th scope="col">
@@ -29,6 +30,9 @@
       <td>{{ $data->phone }}</td>
       <td>{{ $data->fax }}</td>
       <td>{{ $data->email }}</td>
+      <td>
+        <img src="{{asset($data->userimage['image'])}}" width="50">
+      </td>
       <td>{{ $data->password }}</td>
       <td>
           <a href="{{ route('delete',$data->id) }} " class="btn btn-info text-white btn-sm">Delete</a>
@@ -36,6 +40,7 @@
       </td>
     </tr>
   @endforeach
+  {{ $users->links() }}
   </tbody>
 </table>
 </div>

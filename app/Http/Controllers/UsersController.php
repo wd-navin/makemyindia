@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Models\Users;
+use App\Models\UsersImages;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -18,27 +19,58 @@ class UsersController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function profile(){
-        return view('users.my-profile');
-    }
+//    public function profile(){
+//        return view('users.my-profile');
+//    }
     
     public function index() {
        // $users = Users::where('status', 1)->get();
-        $users = Users::select()->get();
+        $users = Users::select('*')
+                ->with('userimage')
+                ->paginate(4);
         //print_r($users);exit;
         return view('users.view-users', ['users' => $users]);
     }
        
    
     public function insertform() {
+        
     return view('users.add-users');
     }
     
-    public function insert(Request $req) {
+    public function insert(Request $request) {
        
-        $input= $req->all();
-        Users::create($input);
-        return redirect('/add-record');
+        //$input= $req->all();
+        //Users::create($input);
+        $user = new Users();
+        $user->name =  $request['name'];
+        $user->username =  $request['username'];
+        $user->phone =  $request['phone'];
+        $user->fax = $request['fax'];
+        $user->email = $request['email'];
+        $user->password = $request['password'];
+        $user->save();
+        
+        if($files = $request->file('user_image')){
+            
+             $m_id = Users::findOrFail($user->id);
+                $path = public_path() . "/images/user_image";
+                $priv = 0777;
+                if (!file_exists($path)) {
+                    mkdir($path, $priv) ? true : false; //
+                }
+                foreach ($files as $file) {
+                    $name = $file->getClientOriginalName();
+                    $file->move('images/user_image', $name);
+                    $images = new UsersImages();
+                    $images->user_id = $m_id->id;
+                    $images->image = '/images/user_image/' . $name;
+                 
+                    $images->save();
+                }
+            
+        }
+        return redirect('/view-users');
     }
     
     public function destroy($id) {

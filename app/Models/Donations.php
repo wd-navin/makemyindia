@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
-
-//use App\Models\LeasingReps;
+use App\Models\Category;
+use App\Models\DonationImages;
 //use App\Models\MarketImages;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,9 +12,13 @@ class Donations extends Model {
 //        return $this->hasOne(LeasingReps::class, 'id');
 //    }
 //    
-//     public function marketimages() {
-//        return $this->hasMany(MarketImages::class, 'market_id', 'id');
-//    }
+     public function donationimage() {
+        return $this->hasMany(DonationImages::class, 'donation_id', 'id');
+    }
+    
+     public function category() {
+        return $this->hasOne(Category::class,'id','category_id');
+    }
 
     protected $fillable = [
         'user_id',

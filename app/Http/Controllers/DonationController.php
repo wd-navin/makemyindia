@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use DB;
-
+use App\Models\Category;
 use App\Models\Donations;
-
+use App\Models\DonationImages;
 use Illuminate\Http\Request;
 
 class DonationController extends Controller
@@ -18,27 +18,53 @@ class DonationController extends Controller
     
     public function show_data()
     {
-        $a = Donations::select()->get();
-        //print_r($a);exit;
+          $a = Donations::select('*')
+                ->with('donationimage')
+                 ->with('category')
+                ->paginate(5);
+             // print_r($a);exit;
+         
         return view('donations.show-users', ['donation' => $a]);
     }
     
     public function insert()
     {
-        return view('donations.add-users');
+         $cat = Category::select('*')->get();
+        return view('donations.add-users',['cat'=>$cat]);
    }
    
     public function store(Request $request)
     {
         $user = new Donations();
         $user->user_id =  $request['user_id'];
+        $user->category_id =  $request['category_id'];
         $user->donation_type_id =  $request['donation_type_id'];
         $user->city = $request['city'];
         $user->state = $request['state'];
         $user->pick_up_location = $request['pick_up_location'];
         $user->message = $request['message'];
         $user->save();
-        return redirect('/add-record');
+        
+        if ($files = $request->file('donation_image')) {
+           
+              $m_id = Donations::findOrFail($user->id);
+                $path = public_path() . "/images/donation_image";
+                $priv = 0777;
+                if (!file_exists($path)) {
+                    mkdir($path, $priv) ? true : false; //
+                }
+                foreach ($files as $file) {
+                    $name = $file->getClientOriginalName();
+                    $file->move('images/donation_image', $name);
+                    $images = new DonationImages();
+                    $images->donation_id = $m_id->id;
+                    $images->image = '/images/donation_image/' . $name;
+                 
+                    $images->save();
+                }
+            }
+        
+        return redirect('/add-users');
     
     }
 
