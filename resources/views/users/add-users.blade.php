@@ -6,13 +6,13 @@
     <div class="row">
         <div class="box">
             <h2>ADD USERS</h2>    
-            <form action="{{route('users.add-users')}}"  method="POST"> 
+            <form action="{{route('users.add-users')}}"  method="POST" enctype="multipart/form-data"> 
                 @csrf
                   <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                 <table>
                     <div class="inputBox">
                        <input type="text" name="name" placeholder="Name" />
-                     </div>
+                    </div>
                     <div class="inputBox">
                         <input type="text" name="username" placeholder="Username" />
                     </div> 
@@ -26,18 +26,17 @@
                        <input type="email" name="email" placeholder="Email" />
                    </div> 
                    <div class="inputBox">
-                       <input type="file" name="user_image[]" multiple />
+                       <input type="file" name="user_image" />                       
                    </div> 
                      <div class="inputBox">
                          <select name="status">
                              <option value="1">Active</option>
                              <option value="0">In-active</option>
                          </select>
-                   </div> 
-                                         
-                            <div class="inputBox">
-                                <input type="text" name="password" placeholder="Password" />
-                               </div>                            
+                   </div>                                          
+                    <div class="inputBox">
+                        <input type="text" name="password" placeholder="Password" />
+                    </div>                            
                        
                           <input type="submit" name="" value="Submit">
                   </table>     

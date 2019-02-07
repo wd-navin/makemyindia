@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>resources/views/users/view-users.blade.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>32</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/xampp/htdocs/makemyindia/app/Http/Controllers/UsersController.php</file>
-            <file>file:/F:/xampp/htdocs/makemyindia/app/Http/Controllers/DonationController.php</file>
-            <file>file:/F:/xampp/htdocs/makemyindia/resources/views/users/view-users.blade.php</file>
-            <file>file:/F:/xampp/htdocs/makemyindia/resources/views/donations/show-users.blade.php</file>
-            <file>file:/F:/xampp/htdocs/makemyindia/routes/web.php</file>
-            <file>file:/F:/xampp/htdocs/makemyindia/resources/views/users/add-users.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

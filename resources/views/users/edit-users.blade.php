@@ -6,7 +6,7 @@
     <div class="row">
         <div class="box">
             <h2>EDIT USERS</h2>    
-            <form action="{{  route('edit-users',$data->id) }} " method="post">
+            <form action="{{  route('update') }} " enctype="multipart/form-data" method="post">
                 
                 @csrf
            
@@ -22,6 +22,14 @@
                    </div>
                   <div class="inputBox">
                         <input type="text" name="email" value="{{ $data->email }}" placeholder="email" />
+                   </div>
+                  <div class="inputBox">
+                      <input type="file" name="image"   />
+                        
+                        @if($data->userimage != '' )
+                        <img src="{{ $data->userimage['image'] }}" width="40">
+                        <input type="hidden" name="image_id" value="{{$data->userimage['id'] }}">
+                        @endif
                    </div>
                    
                   

@@ -64,7 +64,7 @@ class DonationController extends Controller
                 }
             }
         
-        return redirect('/add-users');
+        return redirect('view-users');
     
     }
 

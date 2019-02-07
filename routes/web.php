@@ -37,7 +37,7 @@ Route::get('delete/{id}', 'UsersController@destroy')->name('delete');
 
 /* ... EDIT USERS ROUTE .... */
 Route::get('edit-users/{id}', 'UsersController@show')->name('edit-users');
-Route::post('edit-users/{id}','UsersController@update');
+Route::post('update','UsersController@update')->name('update');
 
 /* ... DONATION-CONTROLLER.... */
 Route::get('main-page', 'DonationController@home')->name('main-page');
