@@ -21,13 +21,10 @@
                              @endforeach
                          </select>
                      </div>
-                    <div class="inputBox">
+<!--                    <div class="inputBox">
                         <input type="text" name="donation_type_id" placeholder="donation_type_id" />
-                    </div> 
-                    <div class="inputBox">
-                        <input type="text" name="category_id" placeholder="category_id" />
-                    </div> 
-                    <div class="inputBox">
+                    </div> -->
+                     <div class="inputBox">
                         <input type="text" name="city" placeholder="city" />
                     </div> 
                     <div class="inputBox">

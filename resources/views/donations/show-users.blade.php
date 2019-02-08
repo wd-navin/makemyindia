@@ -8,7 +8,6 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">User Id</th>
-      <th scope="col">Donation_type_id</th>
       <th scope="col">City</th>
       <th scope="col">category_id</th>
       <th scope="col">State</th>
@@ -24,7 +23,6 @@
     <tr>
      <th scope="row">{{ $data->id }}</th>
       <td>{{ $data->user_id }}</td>
-      <td>{{ $data->donation_type_id }}</td>
       <td>{{ $data->city }}</td>
        <td>@if($data->category != '')
            {{ $data->category->name }}

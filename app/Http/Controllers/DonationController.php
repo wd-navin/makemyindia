@@ -23,8 +23,7 @@ class DonationController extends Controller
                  ->with('category')
                 ->paginate(5);
              // print_r($a);exit;
-         
-        return view('donations.show-users', ['donation' => $a]);
+          return view('donations.show-users', ['donation' => $a]);
     }
     
     public function insert()
@@ -38,7 +37,7 @@ class DonationController extends Controller
         $user = new Donations();
         $user->user_id =  $request['user_id'];
         $user->category_id =  $request['category_id'];
-        $user->donation_type_id =  $request['donation_type_id'];
+       // $user->donation_type_id =  $request['donation_type_id'];
         $user->city = $request['city'];
         $user->state = $request['state'];
         $user->pick_up_location = $request['pick_up_location'];
@@ -64,7 +63,7 @@ class DonationController extends Controller
                 }
             }
         
-        return redirect('view-users');
+        return redirect('show-users');
     
     }
 
