@@ -6,7 +6,7 @@
     <div class="row">
         <div class="box">
             <h2>ADD USERS</h2>    
-            <form action="{{route('donations.add-users')}}" enctype="multipart/form-data" method="POST"> 
+            <form action="javascript:void(0)" enctype="multipart/form-data" method="POST" class="SubmitForm"> 
                 @csrf
                   <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                 <table>
@@ -18,13 +18,10 @@
                          <select name="category_id">
                              @foreach($cat as $data)
                              <option value="{{$data->id}}">{{ $data->name }}</option> 
-                             @endforeach
+                             @endforeach    
                          </select>
                      </div>
-<!--                    <div class="inputBox">
-                        <input type="text" name="donation_type_id" placeholder="donation_type_id" />
-                    </div> -->
-                     <div class="inputBox">
+                        <div class="inputBox">
                         <input type="text" name="city" placeholder="city" />
                     </div> 
                     <div class="inputBox">
@@ -37,7 +34,7 @@
                        <input type="textarea" name="message" placeholder="message" />
                    </div> 
                       <div class="inputBox">
-                       <input type="file" name="donation_image[]" multiple />
+                       <input type="file" name="user_image[]" multiple />
                    </div> 
                        
                           <input type="submit" name="" value="Submit">

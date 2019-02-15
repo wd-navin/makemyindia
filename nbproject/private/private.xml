@@ -12,7 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/xampp/htdocs/makemyindia/app/Http/Controllers/UsersController.php</file>
+            <file>file:/F:/xampp/htdocs/makemyindia/public/js/ajax.js</file>
+            <file>file:/F:/xampp/htdocs/makemyindia/app/Http/Controllers/HomeController.php</file>
+            <file>file:/F:/xampp/htdocs/makemyindia/resources/views/users/images.blade.php</file>
+            <file>file:/F:/xampp/htdocs/makemyindia/routes/web.php</file>
         </group>
     </open-files>
 </project-private>

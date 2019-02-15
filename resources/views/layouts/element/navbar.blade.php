@@ -38,7 +38,7 @@
                                     <a class="dropdown-item" href="{{ route('view-users') }}">
                                       {{ __('View Users') }}
                                     </a>
-                                     <a class="dropdown-item" href="{{ route('show-users') }}">
+                                     <a class="dropdown-item" href="{{ route('donations.show-users') }}">
                                       {{ __('Donation Users') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

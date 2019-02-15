@@ -38,27 +38,22 @@ class UsersController extends Controller {
     }
 
     public function insert(Request $request) {
-
-        //$input= $req->all();
-        //Users::create($input);
-        $user = new Users();
+       $user = new Users();
         $user->name = $request['name'];
         $user->username = $request['username'];
         $user->phone = $request['phone'];
         $user->fax = $request['fax'];
         $user->email = $request['email'];
         $user->password = $request['password'];
-       $user->save();
+        $user->save();
 
         if ($files = $request->file('user_image')) {
-//print_R($files);exit;
-            $m_id = Users::findOrFail($user->id);
+           $m_id = Users::findOrFail($user->id);
             $path = public_path() . "/images/user_image";
             $priv = 0777;
             if (!file_exists($path)) {
                 mkdir($path, $priv) ? true : false; //
             }
-
             $name = $files->getClientOriginalName();
             $files->move('images/user_image', $name);
             $images = new UsersImages();
@@ -69,17 +64,24 @@ class UsersController extends Controller {
         return redirect('/view-users');
     }
 
-    public function destroy($id) {
-        //DB::delete('delete from users where id = ?', [$id]);
-        $user = Users::find($id);
-        $user->delete();
-        return redirect('/view-users');
+    public function destroy(Request $request) {
+        if (request()->ajax()) {
+            
+            $res = Users::where('id', $request->ids)->delete();
+            if ($res) {
+               
+                return response()->json(array('message' => 'success'));
+            } else {
+                return response()->json(array('message' => 'fail'));
+            }
+           
+        }
     }
+    
 
-    public function show($id, Request $request) {
-        //print_r($id);exit;
+    public function show($id, Request $request)
+    {
         $data = Users::where('id', $id)->with('userimage')->first();
-        //print_r($data);exit;
         return view('users.edit-users', ['data' => $data]);
     }
 

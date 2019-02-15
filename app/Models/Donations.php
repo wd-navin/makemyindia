@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\Category;
 use App\Models\DonationImages;
 //use App\Models\MarketImages;
@@ -26,8 +27,8 @@ class Donations extends Model {
         'city',
         'state',
         'pick_up_location',
-//        'lat',
-//        'lng',
+        'lat',
+        'lng',
         'message',
        
     ];

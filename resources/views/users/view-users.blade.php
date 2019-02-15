@@ -40,7 +40,7 @@
       </td>
       <td>{{ $data->password }}</td>
       <td>
-          <a href="{{ route('delete',$data->id) }} " class="btn btn-info text-white btn-sm">Delete</a>
+          <a id = "{{ $data->id }} " class="btn btn-info text-white btn-sm deleteData">Delete</a>
           <a href="{{  route('edit-users',$data->id) }} "class="btn btn-info text-white btn-sm">Edit</a>
       </td>
     </tr>

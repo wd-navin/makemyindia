@@ -15,7 +15,7 @@ class CreateDonationTable extends Migration
     {
         Schema::create('donation', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->index;
+            $table->integer('user_id')->index();
             $table->integer('donation_type_id');
             $table->string('city',100);
             $table->string('state',100);

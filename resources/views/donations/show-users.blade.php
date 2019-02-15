@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <a href="{{ route('donations.add-user') }}" class="btn btn-primary btn-sm ml-auto m-4">
+            {{ __('Add') }}
+        </a>
         <table class="table table-hover">
   <thead>
     <tr>
@@ -40,7 +43,7 @@
           @endforeach
       </td>
        <td>
-          <a href='dlt/{{ $data->id }}' class="btn btn-info text-white btn-sm">Delete</a>
+          <a d-id ='{{ $data->id }}' class="btn btn-info text-white btn-sm D_Del">Delete</a>
           <a href='edit/{{ $data->id }}' class="btn btn-info text-white btn-sm">Edit</a>
       </td>
     </tr>
