@@ -1,23 +1,33 @@
 $(document).ready(function () {
 
-    $('.SubmitForm').submit(function () {
+   
+     $('.SubmitForm').submit(function () {
+        
+        var league = $('.SubmitForm')[0];
+        var league_data = new FormData(league);
       $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            url: webUrl + '/add-users',             
-            type: 'POST',
-            data: $('.SubmitForm').serialize(),
-            dataType: 'json',
-            context: this,
-            success: function (data) {
-                if(data.msg == 'Post done successfully')
+                enctype     : 'multipart/form-data',
+                url         : webUrl + '/add-users',                
+                data        : league_data,               
+                type        : 'post',
+                contentType : false,
+                processData : false,
+                dataType    : 'json',                      
+                                          
+                success: function (data) {
+                    if(data.msg == 'Post done successfully')
                 {
-                    alert('data saved')
+                     window.location.href = webUrl + '/show-users';
+                    $('.SubmitForm input').val('');
+                    
                 }
             }
         });
     });
+    
 
     $(".deleteData").click(function () {
         var id = $(this).attr("id");
@@ -83,6 +93,7 @@ $(document).ready(function () {
                     if(data.msg == 'Post done successfully')
                 {
                     alert('data saved')
+                     $('.UploadImage input').val('');
                 }
             }
         });

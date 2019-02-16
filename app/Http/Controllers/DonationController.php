@@ -44,8 +44,8 @@ class DonationController extends Controller {
         //print_r($request->all());exit;
         $user->save();
 
-        if ($files = $request->file('user_image')) {
-
+        if ($files = $request->file('image')) {
+            //print_r($files);exit;
 
             $m_id = Donations::findOrFail($user->id);
             $path = public_path() . "/images/user_image";

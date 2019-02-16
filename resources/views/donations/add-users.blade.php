@@ -34,10 +34,10 @@
                        <input type="textarea" name="message" placeholder="message" />
                    </div> 
                       <div class="inputBox">
-                       <input type="file" name="user_image[]" multiple />
+                       <input type="file" name="image[]" multiple />
                    </div> 
                        
-                          <input type="submit" name="" value="Submit">
+                    <button type="submit" name="" class="btn btn-primary btn-sm">Submit</button>
                   </table>     
           
             </form> 
